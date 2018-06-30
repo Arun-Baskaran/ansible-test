@@ -1,0 +1,17 @@
+- name: Playbook to install nginx
+  hosts: webserver
+  sudo: True
+  tasks:
+      - name: Running Update
+        yum: 
+           name: '*' 
+           state: 'latest'
+           exclude: kernel*,httpd*
+
+      - name: Installing nginx
+        yum: name='nginx' state=present
+        notify:
+          - restart nginx
+  handlers:
+      - name : restart nginx
+        service: name=nginx state=restarted
