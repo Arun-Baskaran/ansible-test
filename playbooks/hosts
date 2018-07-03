@@ -1,2 +1,6 @@
-[webserver]
-testserver ansible_ssh_host=127.0.0.1
+[web]
+web_server ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+[app]
+app_server ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200
+[db]
+db_server ansible_ssh_host=127.0.0.1  ansible_ssh_port=2201
